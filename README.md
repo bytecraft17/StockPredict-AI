@@ -1,101 +1,109 @@
-# 📈 StockPredict AI
+# 📈 StockPredict AI: Reliance Stock Price Prediction
 
-> Reliance Industries Stock Price Prediction using Bidirectional LSTM | R²: 0.9682 | MAPE: 1.63%
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.15+-FF6F00?logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+> **Predicting Reliance Industries stock prices using Deep Learning (Bidirectional LSTM) with high precision.**
+
+StockPredict AI is a sophisticated deep learning project designed to forecast the stock price of Reliance Industries (NSE: RELIANCE). By leveraging Bidirectional Long Short-Term Memory (LSTM) networks, the model captures complex temporal dependencies and market patterns that traditional machine learning models often miss.
 
 ---
 
-## 🏆 Results
+## 🏆 Model Performance
+
+The Bidirectional LSTM model significantly outperforms standard regression baselines, achieving near-perfect tracking of stock trends.
 
 | Metric | Value |
-|--------|-------|
-| R² Score | **0.9682** ⭐ |
-| MAPE | **1.63%** |
-| RMSE | ₹27.00 |
-| MAE | ₹21.34 |
+| :--- | :--- |
+| **R² Score** | **0.9682** ⭐ |
+| **MAPE (Mean Absolute % Error)** | **1.63%** |
+| **RMSE (Root Mean Square Error)** | **₹27.00** |
+| **MAE (Mean Absolute Error)** | **₹21.34** |
 
 ---
 
-## 📊 Model Comparison
+## 📊 Dataset Information
 
-| Model | Result |
-|-------|--------|
-| Logistic Regression | 51.67% accuracy |
-| Random Forest | 48.75% accuracy |
-| Gradient Boosting | 49.16% accuracy |
-| **Bidirectional LSTM** ⭐ | **R²: 0.9682 — MAPE: 1.63%** |
+The model is trained on historical data for **Reliance Industries Limited (RELIANCE.NS)**, one of India's largest conglomerates.
 
-> Basic ML fails at stock prediction — LSTM captures temporal patterns effectively.
-
----
-
-## 🧠 Project Modules
-
-### Module 1 — Data Collection
-- Reliance Industries (RELIANCE.NS) — NSE India
-- 10 years data: 2015-2024
-- Source: Yahoo Finance via `yfinance`
-- 2,400+ trading days
-
-### Module 2 — EDA & Feature Engineering
-- Closing price trend analysis
-- Moving Averages (MA20, MA50)
-- RSI — Relative Strength Index
-- MACD + Signal Line
-- Bollinger Bands
-- Daily Returns & Volatility
-
-### Module 3 — Basic ML (Baseline)
-- Logistic Regression
-- Random Forest Classifier
-- Gradient Boosting Classifier
-- Result: ~50% accuracy (coin flip) — proves stock direction prediction is hard
-
-### Module 4 — Bidirectional LSTM
-- 60-day sequences → Next day price
-- 2 Bidirectional LSTM layers
-- Dropout regularization
-- EarlyStopping + ReduceLROnPlateau
-- **Final R²: 0.9682 | MAPE: 1.63%** ⭐
-
-### Module 5 — Future Forecast
-- 30-day future price prediction
-- Confidence band visualization
+- **Source:** Yahoo Finance (via `yfinance` API)
+- **Time Period:** 10 Years (January 1, 2015 – December 31, 2024)
+- **Data Points:** 2,460+ trading sessions
+- **Features Extracted:**
+  - `Close`: Daily closing price
+  - `High/Low`: Daily price range
+  - `Volume`: Trading activity
+  - `MA_20 / MA_50`: Moving averages for trend detection
+  - `Volatility`: 20-day rolling standard deviation of returns
 
 ---
 
-## 🏗️ Project Structure
+## 🧠 Project Architecture
+
+The project follows a rigorous data science pipeline:
+
+### 1. Data Collection & Preprocessing
+Automated ingestion of NSE data, scaling using `MinMaxScaler`, and sequence generation (60-day windows).
+
+### 2. Exploratory Data Analysis (EDA)
+Comprehensive visualization of price trends, volatility analysis, and feature correlation studies.
+
+### 3. Baseline Comparison
+Evaluation of traditional models to establish a performance floor:
+- **Logistic Regression**: 51.67% accuracy (direction)
+- **Random Forest**: 48.75% accuracy (direction)
+- **Gradient Boosting**: 49.16% accuracy (direction)
+
+### 4. Deep Learning Model (Bidirectional LSTM)
+A robust architecture featuring:
+- Two Bidirectional LSTM layers for forward and backward temporal context.
+- Dropout regularization to prevent overfitting.
+- Adam optimizer with dynamic learning rate reduction.
+
+### 5. Future Forecasting
+Predicting price trends for the next 30 days with confidence intervals.
 
 ---
 
 ## 🚀 Tech Stack
 
-- **Deep Learning:** TensorFlow, Keras — Bidirectional LSTM
-- **ML Models:** Scikit-learn
-- **Data:** yfinance (Yahoo Finance NSE)
+- **Deep Learning:** TensorFlow, Keras
+- **Machine Learning:** Scikit-learn
+- **Data Analysis:** Pandas, NumPy
 - **Visualization:** Matplotlib, Seaborn
-- **Stock:** Reliance Industries (RELIANCE.NS)
+- **Financial Data:** YFinance (Yahoo Finance NSE)
 
 ---
 
-## ⚡ How to Run
+## ⚡ Installation & Usage
 
+### 1. Clone the Repository
 ```bash
-# 1. Clone the repo
 git clone https://github.com/bytecraft17/StockPredict-AI.git
-
-# 2. Install dependencies
-pip install yfinance tensorflow scikit-learn pandas numpy matplotlib seaborn
-
-# 3. Open notebook
-jupyter notebook StockPredict_AI.ipynb
-
-# 4. Run all cells
+cd StockPredict-AI
 ```
 
-> Dataset downloads automatically via yfinance — no manual download needed!
+### 2. Install Dependencies
+```bash
+pip install yfinance tensorflow scikit-learn pandas numpy matplotlib seaborn
+```
+
+### 3. Run the Notebook
+```bash
+jupyter notebook StockPredict_AI.ipynb
+```
 
 ---
 
 ## 👤 Author
 
-**bytecraft17** — AI/ML Developer
+**bytecraft17**  
+*AI/ML Developer*  
+[GitHub Profile](https://github.com/bytecraft17)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
